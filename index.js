@@ -8,7 +8,30 @@ const dates = [
 ];
 
 // TODO: Buatlah fungsi createDate
-const createDate = null;
+// const createDate = null;
+
+const createDate = (dates, index) =>{
+  let dateList = [];
+  if (index === undefined) {
+    for (let i = 0; i < dates.length; i++) {
+      dateList.push(secondEpoch(Date.parse(dates[i])));
+    }
+
+    return dateList.sort().join("-").toString();
+
+  } else {
+    for (let i = 0; i < dates.length; i++) {
+      dateList.push(secondEpoch(Date.parse(dates[i])));      
+    }
+    
+    return dateList[index].toString();
+
+  }
+}
+
+const secondEpoch = (dates) => {
+  return Math.floor(dates/1000);
+}
 
 // ! JANGAN DIMODIFIKASI
 (() => {
